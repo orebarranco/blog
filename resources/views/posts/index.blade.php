@@ -2,12 +2,13 @@
     <div class="px-2 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($posts as $post)
-                <article class="w-full bg-center bg-cover h-80 @if ($loop->first) md:col-span-2  @endif"
+                <article class="w-full bg-center bg-cover h-80 @if ($loop->first) md:col-span-2 @endif"
                     style="background-image: url({{ Storage::url($post->image->url) }})">
                     <div class="flex flex-col justify-center w-full h-full px-8">
                         <div>
-                            @foreach ( $post->tags as $tag)
-                                <a href="" class="inline-block h-6 px-3 bg-{{ $tag->color }}-600 rounded-full">{{ $tag->name }}</a>
+                            @foreach ($post->tags as $tag)
+                                <a href=""
+                                    class="inline-block h-6 px-3 bg-{{ $tag->color }}-600 rounded-full">{{ $tag->name }}</a>
                             @endforeach
                         </div>
 
