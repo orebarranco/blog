@@ -12,6 +12,6 @@ class Tag extends Model
     // Relación M:M
     public function posts()
     {
-        $this->belongsToMany(Post::class);
+        return $this->belongsToMany(Post::class);
     }
 }
