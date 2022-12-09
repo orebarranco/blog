@@ -9,6 +9,14 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'slug'];
+
+    // Para que Laravel no tome la informacion del id para mostrar la categoría, sino el slug.
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
     // Relación 1:M
     public function posts()
     {

@@ -76,6 +76,10 @@
                             <!-- Active: "bg-gray-100", Not Active: "" -->
                             <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700"
                                 role="menuitem" tabindex="-1" id="user-menu-item-0">Tu perfil</a>
+                            
+                            {{-- Dashboard --}}
+                            <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700"
+                                role="menuitem" tabindex="-1" id="user-menu-item-0">Dashboard</a>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
