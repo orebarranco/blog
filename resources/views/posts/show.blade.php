@@ -10,7 +10,8 @@
             {{-- Contenido principal --}}
             <div class="lg:col-span-2">
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}"
+                    <img class="w-full h-80 object-cover object-center"
+                        src="@if ($post->image) {{ Storage::url($post->image->url) }} @else {{ asset('img/default_post_img.jpg') }} @endif"
                         alt="">
                 </figure>
 
@@ -27,7 +28,9 @@
                     @foreach ($similares as $similar)
                         <li class="mb-4">
                             <a class="flex" href="{{ route('posts.show', $similar) }}">
-                                <img class="w-36 h-30 object-cover object-center" src="{{ Storage::url($similar->image->url) }}" alt="">
+                                <img class="w-36 h-30 object-cover object-center"
+                                    src="@if ($similar->image) {{ Storage::url($similar->image->url) }} @else {{ asset('img/default_post_img.jpg') }} @endif"
+                                    alt="">
                                 <span class="ml-2 text-gray-600">{{ $similar->name }}</span>
                             </a>
                         </li>
