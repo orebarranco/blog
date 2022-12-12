@@ -50,6 +50,8 @@
 @section('js')
     <script src="{{ asset('vendor/jquery-slim/cdnjs/jquery.slim.min.js') }}"></script>
     <script src="{{ asset('vendor/multilingual-slug-generator/jquery.slugit.js') }}"></script>
+    <script src="{{ asset('vendor/ckeditor5-build-classic-35.3.2/ckeditor5-build-classic/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/ckeditor5-build-classic-35.3.2/ckeditor5-build-classic/translations/es.js') }}"></script>
     <script>
         $(function() {
             $('#name').slugIt({
@@ -70,5 +72,23 @@
                 console.log(reader.result);
             }
         }
+    </script>
+    <script>
+        // Incluir CKEditor en los textArea
+        ClassicEditor
+            .create(document.querySelector('#extract'), {
+                language: 'es'
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#body'), {
+                language: 'es'
+            })
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 @endsection
